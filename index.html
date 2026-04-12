@@ -16,6 +16,65 @@
       --shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
       --max-width: 1160px;
       --hero-gradient: linear-gradient(135deg, #eef3ff 0%, #f8fbff 45%, #eefbf7 100%);
+
+      .about-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.about-card p {
+  margin: 0 0 20px;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.skills-card {
+  padding-top: 24px;
+}
+
+.skill-group + .skill-group {
+  margin-top: 26px;
+}
+
+.skill-heading {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-bottom: 8px;
+  border-bottom: 2px solid color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.skill-list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.skill-list li {
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.skill-list-compact {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+}
+
+@media (max-width: 920px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-list-compact {
+    grid-template-columns: 1fr;
+  }
+}
     }
 
     body.dark {
@@ -399,14 +458,8 @@
       </div>
     </section>
 
-    <section class="section" id="about">
-      <div class="container grid-2">
-        <div class="card panel">
-          <h2 class="section-title">About Me</h2>
-<section class="section" id="about">
-  <div class="container about-grid">
-
-    <!-- Left: About Me -->
+   <section class="section" id="about">
+  <div class="container about-layout">
     <div class="card panel about-card">
       <h2 class="section-title">About Me</h2>
 
@@ -447,10 +500,9 @@
       </p>
     </div>
 
-    <!-- Right: Skills -->
     <div class="card panel skills-card">
-      <div class="skill-block">
-        <h2 class="skill-title">Technical Skills</h2>
+      <div class="skill-group">
+        <h3 class="skill-heading">Technical Skills</h3>
         <ul class="skill-list">
           <li><strong>Software Defined Radios (SDRs):</strong> USRPs, AntSDR, HackRF, RTL-SDR, BladeRF, Pluto SDR</li>
           <li><strong>Embedded Systems &amp; Boards:</strong> NVIDIA Jetson Orin Nano, Raspberry Pi, PIC Microcontrollers, LoRaWAN Modules</li>
@@ -463,9 +515,9 @@
         </ul>
       </div>
 
-      <div class="skill-block">
-        <h2 class="skill-title">Programming Skills</h2>
-        <ul class="skill-list compact-list">
+      <div class="skill-group">
+        <h3 class="skill-heading">Programming Skills</h3>
+        <ul class="skill-list skill-list-compact">
           <li>C++</li>
           <li>C</li>
           <li>Python</li>
@@ -475,8 +527,8 @@
         </ul>
       </div>
 
-      <div class="skill-block">
-        <h2 class="skill-title">Domain Expertise</h2>
+      <div class="skill-group">
+        <h3 class="skill-heading">Domain Expertise</h3>
         <ul class="skill-list">
           <li>
             C-V2X / NR-V2X, Resource Allocation, Cooperative-Connected Automated Vehicles (C-CAVs),
@@ -487,32 +539,30 @@
         </ul>
       </div>
     </div>
-
   </div>
 </section>
 
-</div>
-
-        <div class="card panel">
-          <h2 class="section-title">Research Interests</h2>
-          <div class="chips">
-            <span class="chip">Vehicle-to-Everything Communications</span>
-            <span class="chip">NR-V2X Mode 2</span>
-            <span class="chip">Deep Reinforcement Learning</span>
-            <span class="chip">Federated Learning</span>
-            <span class="chip">Edge Computing</span>
-            <span class="chip">Non-Terrestrial Networks</span>
-            <span class="chip">Resource Allocation</span>
-            <span class="chip">Software Defined Radios</span>
-            <span class="chip">GNU Radio</span>
-            <span class="chip">ns-3 / SUMO</span>
-            <span class="chip">TinyML / Meta-Learning</span>
-            <span class="chip">Future 6G Mobility</span>
-          </div>
-        </div>
+    <section class="section" id="research-interests">
+  <div class="container">
+    <div class="card panel">
+      <h2 class="section-title">Research Interests</h2>
+      <div class="chips">
+        <span class="chip">Vehicle-to-Everything Communications</span>
+        <span class="chip">NR-V2X Mode 2</span>
+        <span class="chip">Deep Reinforcement Learning</span>
+        <span class="chip">Federated Learning</span>
+        <span class="chip">Edge Computing</span>
+        <span class="chip">Non-Terrestrial Networks</span>
+        <span class="chip">Resource Allocation</span>
+        <span class="chip">Software Defined Radios</span>
+        <span class="chip">GNU Radio</span>
+        <span class="chip">ns-3 / SUMO</span>
+        <span class="chip">TinyML / Meta-Learning</span>
+        <span class="chip">Future 6G Mobility</span>
       </div>
-    </section>
-
+    </div>
+  </div>
+</section>
     <section class="section" id="publications">
       <div class="container">
         <div class="card panel">
