@@ -16,70 +16,11 @@
       --shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
       --max-width: 1160px;
       --hero-gradient: linear-gradient(135deg, #eef3ff 0%, #f8fbff 45%, #eefbf7 100%);
-
-      .about-layout {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 24px;
-  align-items: start;
-}
-
-.about-card p {
-  margin: 0 0 20px;
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-.skills-card {
-  padding-top: 24px;
-}
-
-.skill-group + .skill-group {
-  margin-top: 26px;
-}
-
-.skill-heading {
-  margin: 0 0 14px;
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--accent);
-  padding-bottom: 8px;
-  border-bottom: 2px solid color-mix(in srgb, var(--accent) 18%, transparent);
-}
-
-.skill-list {
-  margin: 0;
-  padding-left: 20px;
-  display: grid;
-  gap: 10px;
-}
-
-.skill-list li {
-  line-height: 1.65;
-  color: var(--text);
-}
-
-.skill-list-compact {
-  grid-template-columns: 1fr 1fr;
-  column-gap: 24px;
-}
-
-@media (max-width: 920px) {
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .skill-list-compact {
-    grid-template-columns: 1fr;
-  }
-}
     }
 
     body.dark {
-      --bg: #0b1120;
-      --bg-alt: #121a2d;
+      --bg: #020817;
+      --bg-alt: #0f172a;
       --text: #edf2ff;
       --muted: #aab7d6;
       --accent: #82a8ff;
@@ -91,6 +32,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -264,7 +206,10 @@
       transition: transform 0.18s ease;
     }
 
-    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
 
     .btn-primary {
       background: var(--accent);
@@ -387,10 +332,67 @@
       color: var(--muted);
     }
 
+    /* About / Skills / Research layout */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .about-left {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .about-card p {
+      margin: 0 0 20px;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .skills-card {
+      padding-top: 24px;
+    }
+
+    .skill-group + .skill-group {
+      margin-top: 26px;
+    }
+
+    .skill-heading {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-bottom: 8px;
+      border-bottom: 2px solid color-mix(in srgb, var(--accent) 18%, transparent);
+    }
+
+    .skill-list {
+      margin: 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .skill-list li {
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .skill-list-compact {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 24px;
+    }
+
     @media (max-width: 920px) {
       .hero-grid,
       .grid-2,
-      .contact-grid {
+      .contact-grid,
+      .about-layout {
         grid-template-columns: 1fr;
       }
 
@@ -404,10 +406,14 @@
         align-items: flex-start;
         flex-direction: column;
       }
+
+      .skill-list-compact {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-<body>
+<body class="dark">
   <header>
     <div class="container nav">
       <div class="brand">Malik Muhammad Saad</div>
@@ -419,7 +425,7 @@
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
+        <button class="theme-toggle" id="themeToggle">☀️ Light Mode</button>
       </div>
     </div>
   </header>
@@ -444,7 +450,7 @@
             <div class="hero-meta">
               <span class="pill">NR-V2X / C-V2X</span>
               <span class="pill">3GPP-Aligned Research</span>
-              <span class="pill">GNU Radio & SDR</span>
+              <span class="pill">GNU Radio &amp; SDR</span>
               <span class="pill">AI for Wireless Networks</span>
             </div>
 
@@ -458,111 +464,110 @@
       </div>
     </section>
 
-   <section class="section" id="about">
-  <div class="container about-layout">
-    <div class="card panel about-card">
-      <h2 class="section-title">About Me</h2>
+    <section class="section" id="about">
+      <div class="container about-layout">
+        <div class="about-left">
+          <div class="card panel about-card">
+            <h2 class="section-title">About Me</h2>
 
-      <p>
-        <strong>Postdoctoral Researcher</strong> specializing in
-        <strong>AI-driven mobility and communication systems</strong>, spanning
-        <strong>5G/6G</strong>, <strong>V2X</strong>, <strong>distributed AI</strong>,
-        <strong>simulation platforms</strong>, and <strong>intelligent transportation</strong>.
-        Currently affiliated with the <strong>CORE-AI Lab (Physical Embodied AI)</strong>,
-        with a core focus on <strong>on-device AI</strong> and <strong>edge intelligence</strong>,
-        developing <strong>Agentic AI</strong> systems for adaptive, resource-aware, and autonomous
-        optimization in real-world environments.
-      </p>
+            <p>
+              <strong>Postdoctoral Researcher</strong> specializing in
+              <strong>AI-driven mobility and communication systems</strong>, spanning
+              <strong>5G/6G</strong>, <strong>V2X</strong>, <strong>distributed AI</strong>,
+              <strong>simulation platforms</strong>, and <strong>intelligent transportation</strong>.
+              Currently affiliated with the <strong>CORE-AI Lab (Physical Embodied AI)</strong>,
+              with a core focus on <strong>on-device AI</strong> and <strong>edge intelligence</strong>,
+              developing <strong>Agentic AI</strong> systems for adaptive, resource-aware, and autonomous
+              optimization in real-world environments.
+            </p>
 
-      <p>
-        Skilled in <strong>software development</strong>, <strong>SDR prototyping</strong>,
-        and <strong>network simulation</strong> using <strong>ns-3</strong>,
-        <strong>MATLAB</strong>, and Python-based platforms. Proficient in advanced
-        <strong>AI/ML methods</strong> including <strong>Deep Reinforcement Learning</strong>,
-        <strong>LSTM</strong>, <strong>TD3</strong>, and <strong>DDPG</strong> for system-level
-        optimization and real-time decision making.
-      </p>
+            <p>
+              Skilled in <strong>software development</strong>, <strong>SDR prototyping</strong>,
+              and <strong>network simulation</strong> using <strong>ns-3</strong>,
+              <strong>MATLAB</strong>, and Python-based platforms. Proficient in advanced
+              <strong>AI/ML methods</strong> including <strong>Deep Reinforcement Learning</strong>,
+              <strong>LSTM</strong>, <strong>TD3</strong>, and <strong>DDPG</strong> for system-level
+              optimization and real-time decision making.
+            </p>
 
-      <p>
-        Actively engaged in <strong>3GPP-aligned R&amp;D</strong> and
-        <strong>5GAA collaboration</strong>, with contributions to
-        <strong>sidelink standardization</strong>, <strong>intelligent resource allocation</strong>,
-        and <strong>vehicular communication protocol design</strong>.
-      </p>
+            <p>
+              Actively engaged in <strong>3GPP-aligned R&amp;D</strong> and
+              <strong>5GAA collaboration</strong>, with contributions to
+              <strong>sidelink standardization</strong>, <strong>intelligent resource allocation</strong>,
+              and <strong>vehicular communication protocol design</strong>.
+            </p>
 
-      <p>
-        Experienced in developing <strong>C-CAV-focused software frameworks</strong> integrating
-        <strong>sensor fusion</strong>, <strong>context-aware semantics extraction</strong>, and
-        <strong>Agentic AI</strong>-based perception and reasoning layers, with emphasis on
-        <strong>on-device LLM optimization</strong> for thermally-aware, energy-efficient, and
-        scalable <strong>Physical Embodied AI systems</strong> enabling next-generation
-        cooperative and automated mobility.
-      </p>
-    </div>
+            <p>
+              Experienced in developing <strong>C-CAV-focused software frameworks</strong> integrating
+              <strong>sensor fusion</strong>, <strong>context-aware semantics extraction</strong>, and
+              <strong>Agentic AI</strong>-based perception and reasoning layers, with emphasis on
+              <strong>on-device LLM optimization</strong> for thermally-aware, energy-efficient, and
+              scalable <strong>Physical Embodied AI systems</strong> enabling next-generation
+              cooperative and automated mobility.
+            </p>
+          </div>
 
-    <div class="card panel skills-card">
-      <div class="skill-group">
-        <h3 class="skill-heading">Technical Skills</h3>
-        <ul class="skill-list">
-          <li><strong>Software Defined Radios (SDRs):</strong> USRPs, AntSDR, HackRF, RTL-SDR, BladeRF, Pluto SDR</li>
-          <li><strong>Embedded Systems &amp; Boards:</strong> NVIDIA Jetson Orin Nano, Raspberry Pi, PIC Microcontrollers, LoRaWAN Modules</li>
-          <li><strong>Mobile AI Platforms:</strong> Google Pixel (Tensor SoC), Snapdragon-based devices, heterogeneous computing (CPU, GPU, NPU)</li>
-          <li><strong>AI/ML:</strong> Reinforcement Learning, Deep Reinforcement Learning (DRL), LSTM, CNN, Supervised Learning, Transfer Learning</li>
-          <li><strong>Frameworks:</strong> TensorFlow, PyTorch, Scikit-learn, Matplotlib</li>
-          <li><strong>Simulation Tools:</strong> ns-3, MATLAB, SUMO, GNU Radio, CARLA, Simulink, Wireshark</li>
-          <li><strong>OS/RTOS:</strong> Linux, QNX, VMware</li>
-          <li><strong>IPR:</strong> Contribution to Intellectual Property Rights</li>
-        </ul>
+          <div class="card panel research-card">
+            <h2 class="section-title">Research Interests</h2>
+            <div class="chips">
+              <span class="chip">Vehicle-to-Everything Communications</span>
+              <span class="chip">NR-V2X Mode 2</span>
+              <span class="chip">Deep Reinforcement Learning</span>
+              <span class="chip">Federated Learning</span>
+              <span class="chip">Edge Computing</span>
+              <span class="chip">Non-Terrestrial Networks</span>
+              <span class="chip">Resource Allocation</span>
+              <span class="chip">Software Defined Radios</span>
+              <span class="chip">GNU Radio</span>
+              <span class="chip">ns-3 / SUMO</span>
+              <span class="chip">TinyML / Meta-Learning</span>
+              <span class="chip">Future 6G Mobility</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card panel skills-card">
+          <div class="skill-group">
+            <h3 class="skill-heading">Technical Skills</h3>
+            <ul class="skill-list">
+              <li><strong>Software Defined Radios (SDRs):</strong> USRPs, AntSDR, HackRF, RTL-SDR, BladeRF, Pluto SDR</li>
+              <li><strong>Embedded Systems &amp; Boards:</strong> NVIDIA Jetson Orin Nano, Raspberry Pi, PIC Microcontrollers, LoRaWAN Modules</li>
+              <li><strong>Mobile AI Platforms:</strong> Google Pixel (Tensor SoC), Snapdragon-based devices, heterogeneous computing (CPU, GPU, NPU)</li>
+              <li><strong>AI/ML:</strong> Reinforcement Learning, Deep Reinforcement Learning (DRL), LSTM, CNN, Supervised Learning, Transfer Learning</li>
+              <li><strong>Frameworks:</strong> TensorFlow, PyTorch, Scikit-learn, Matplotlib</li>
+              <li><strong>Simulation Tools:</strong> ns-3, MATLAB, SUMO, GNU Radio, CARLA, Simulink, Wireshark</li>
+              <li><strong>OS/RTOS:</strong> Linux, QNX, VMware</li>
+              <li><strong>IPR:</strong> Contribution to Intellectual Property Rights</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3 class="skill-heading">Programming Skills</h3>
+            <ul class="skill-list skill-list-compact">
+              <li>C++</li>
+              <li>C</li>
+              <li>Python</li>
+              <li>Arduino</li>
+              <li>RESTful API, MQTT, SQL</li>
+              <li>Linux System Programming</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3 class="skill-heading">Domain Expertise</h3>
+            <ul class="skill-list">
+              <li>
+                C-V2X / NR-V2X, Resource Allocation, Cooperative-Connected Automated Vehicles (C-CAVs),
+                On-device AI, Edge Intelligence, Sensor Fusion, Semantics V2X Communications, NTN,
+                Network Slicing, O-RAN / AI-RAN
+              </li>
+              <li><strong>Standards:</strong> 3GPP, IEEE, ETSI, ITS, ASPICE, ISO/IEC 4200</li>
+            </ul>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="skill-group">
-        <h3 class="skill-heading">Programming Skills</h3>
-        <ul class="skill-list skill-list-compact">
-          <li>C++</li>
-          <li>C</li>
-          <li>Python</li>
-          <li>Arduino</li>
-          <li>RESTful API, MQTT, SQL</li>
-          <li>Linux System Programming</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <h3 class="skill-heading">Domain Expertise</h3>
-        <ul class="skill-list">
-          <li>
-            C-V2X / NR-V2X, Resource Allocation, Cooperative-Connected Automated Vehicles (C-CAVs),
-            On-device AI, Edge Intelligence, Sensor Fusion, Semantics V2X Communications, NTN,
-            Network Slicing, O-RAN / AI-RAN
-          </li>
-          <li><strong>Standards:</strong> 3GPP, IEEE, ETSI, ITS, ASPICE, ISO/IEC 4200</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section class="section" id="research-interests">
-  <div class="container">
-    <div class="card panel">
-      <h2 class="section-title">Research Interests</h2>
-      <div class="chips">
-        <span class="chip">Vehicle-to-Everything Communications</span>
-        <span class="chip">NR-V2X Mode 2</span>
-        <span class="chip">Deep Reinforcement Learning</span>
-        <span class="chip">Federated Learning</span>
-        <span class="chip">Edge Computing</span>
-        <span class="chip">Non-Terrestrial Networks</span>
-        <span class="chip">Resource Allocation</span>
-        <span class="chip">Software Defined Radios</span>
-        <span class="chip">GNU Radio</span>
-        <span class="chip">ns-3 / SUMO</span>
-        <span class="chip">TinyML / Meta-Learning</span>
-        <span class="chip">Future 6G Mobility</span>
-      </div>
-    </div>
-  </div>
-</section>
     <section class="section" id="publications">
       <div class="container">
         <div class="card panel">
